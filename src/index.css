@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #3B82F6;
+    --color-secondary: #06B6D4;
+    --color-accent: #60A5FA;
+    --color-tertiary: #0EA5E9;
+    --color-quaternary: #06B6D4;
+    --color-background: #080D18;
+    --color-card: #111D30;
+    --color-text: #F8FAFC;
+    --color-text-secondary: #94A3B8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply text-text-main antialiased;
+    background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-background) 0%, var(--color-background) 50%, var(--color-background) 100%);
+    z-index: -1;
+    transition: background 0.5s ease;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent;
+  }
+  
+  .bg-gradient-multicolor {
+    background: linear-gradient(135deg, 
+      var(--color-primary) 0%, 
+      var(--color-secondary) 25%, 
+      var(--color-tertiary) 50%, 
+      var(--color-quaternary) 75%, 
+      var(--color-accent) 100%
+    );
+  }
+  
+  .bg-gradient-multicolor-alt {
+    background: linear-gradient(45deg, 
+      var(--color-secondary) 0%, 
+      var(--color-tertiary) 33%, 
+      var(--color-quaternary) 66%, 
+      var(--color-primary) 100%
+    );
+  }
+  
+  .border-gradient-multicolor {
+    border-image: linear-gradient(135deg, 
+      var(--color-primary), 
+      var(--color-secondary), 
+      var(--color-tertiary), 
+      var(--color-quaternary)
+    ) 1;
+  }
+}

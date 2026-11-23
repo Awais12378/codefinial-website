@@ -1,0 +1,6 @@
+# robots.txt for Nexora Labs
+
+User-agent: *
+Allow: /
+
+Sitemap: https://nexoralabs.com/sitemap.xml
