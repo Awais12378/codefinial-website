@@ -40,7 +40,7 @@ function App() {
       <div className="min-h-screen">
         <Header activeSection={activeSection} />
         <ThemeSwitcher />
-        <main>
+        <main className="lg:pt-0 pt-32">
           <Hero />
           <Services />
           <WhyChooseUs />

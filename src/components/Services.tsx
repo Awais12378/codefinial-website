@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Code, Globe, Zap, Shield, ArrowRight } from 'lucide-react'
+import { Code, Globe, Zap, Shield, ArrowRight, FileText, GraduationCap, BookOpen, Laptop } from 'lucide-react'
 import Button from './Button'
 import Section from './Section'
 
@@ -75,6 +75,74 @@ const services = [
     cta: 'Discuss Your Security Assessment',
     note: 'All security assessments are conducted with prior written authorization and an agreed testing scope.',
     backgroundImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80'
+  },
+  {
+    icon: FileText,
+    name: 'Assignment Writing',
+    description: 'Professional academic writing services for various assignments and coursework across multiple subjects and disciplines.',
+    capabilities: [
+      'Essay writing',
+      'Research papers',
+      'Case studies',
+      'Coursework assistance',
+      'Literature reviews',
+      'Academic editing',
+      'Proofreading services',
+      'Citation formatting'
+    ],
+    cta: 'Get Assignment Help',
+    backgroundImage: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80'
+  },
+  {
+    icon: BookOpen,
+    name: 'University Projects',
+    description: 'Complete university project assistance from conceptualization to final submission, ensuring academic excellence.',
+    capabilities: [
+      'Project planning and structuring',
+      'Research methodology',
+      'Data analysis',
+      'Report writing',
+      'Presentation preparation',
+      'Project documentation',
+      'Quality assurance',
+      'On-time delivery'
+    ],
+    cta: 'Start Your Project',
+    backgroundImage: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80'
+  },
+  {
+    icon: GraduationCap,
+    name: 'Thesis Writing',
+    description: 'Expert thesis and dissertation writing services with comprehensive research support and academic guidance.',
+    capabilities: [
+      'Thesis proposal development',
+      'Literature review',
+      'Research methodology design',
+      'Data collection and analysis',
+      'Thesis writing and editing',
+      'Statistical analysis',
+      'Plagiarism-free content',
+      'Formatting and citation'
+    ],
+    cta: 'Discuss Your Thesis',
+    backgroundImage: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80'
+  },
+  {
+    icon: Laptop,
+    name: 'Final Year Projects',
+    description: 'Software-based final year projects for computer science and IT students with complete development and documentation.',
+    capabilities: [
+      'Project ideation and planning',
+      'Software development',
+      'Database design',
+      'Frontend and backend',
+      'Technical documentation',
+      'Source code delivery',
+      'Project report writing',
+      'Presentation and viva preparation'
+    ],
+    cta: 'Build Your Final Year Project',
+    backgroundImage: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80'
   }
 ]
 
@@ -105,7 +173,7 @@ const Services = () => {
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         {services.map((service, index) => {
           const Icon = service.icon
           return (

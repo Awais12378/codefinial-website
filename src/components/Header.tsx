@@ -146,7 +146,7 @@ const Header = ({ activeSection }: HeaderProps) => {
         damping: 20,
         duration: 0.8
       }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 lg:top-0 top-12 ${
         isScrolled 
           ? 'bg-background-main/95 backdrop-blur-2xl border-b border-accent-primary/30 shadow-2xl shadow-accent-primary/10' 
           : 'bg-transparent'
@@ -170,31 +170,19 @@ const Header = ({ activeSection }: HeaderProps) => {
             onClick={() => scrollToSection('#home')}
           >
             <motion.div
-              className="relative w-16 h-16 bg-gradient-to-br from-accent-primary via-accent-primary/80 to-accent-secondary rounded-2xl flex items-center justify-center shadow-2xl shadow-accent-primary/40"
+              className="relative w-16 h-16 flex items-center justify-center"
               whileHover={{ rotate: 360, scale: 1.1 }}
               transition={{ duration: 0.8 }}
             >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-2xl blur-xl opacity-50"
+              <motion.img
+                src="/Neon CF Monogram App Icon.png"
+                alt="Codefinial Logo"
+                className="w-full h-full object-contain"
                 animate={{ 
-                  scale: [1, 1.2, 1],
-                  opacity: [0.5, 0.8, 0.5]
+                  scale: [1, 1.05, 1],
                 }}
                 transition={{ duration: 2, repeat: Infinity }}
               />
-              <motion.span 
-                className="relative text-text-main font-black text-3xl z-10"
-                animate={{ 
-                  textShadow: [
-                    '0 0 0px rgba(59, 130, 246, 0)',
-                    '0 0 30px rgba(59, 130, 246, 0.8)',
-                    '0 0 0px rgba(59, 130, 246, 0)'
-                  ]
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                C
-              </motion.span>
             </motion.div>
             
             <div className="flex flex-col">

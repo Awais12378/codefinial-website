@@ -46,13 +46,13 @@ const Footer = () => {
                 className="flex items-center space-x-3 mb-4 cursor-pointer"
                 onClick={() => scrollToTop()}
               >
-                <motion.div
+                <motion.img
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
-                  className="w-10 h-10 bg-gradient-multicolor rounded-lg flex items-center justify-center shadow-2xl shadow-accent-primary/30"
-                >
-                  <span className="text-white font-bold text-xl">C</span>
-                </motion.div>
+                  src="/Neon CF Monogram App Icon.png"
+                  alt="Codefinial Logo"
+                  className="w-10 h-10 object-contain"
+                />
                 <div className="flex flex-col">
                   <motion.span
                     whileHover={{ scale: 1.1 }}

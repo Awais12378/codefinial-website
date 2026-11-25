@@ -8,7 +8,6 @@ interface FormData {
   fullName: string
   email: string
   companyName: string
-  website: string
   service: string
   budget: string
   preferredDate: string
@@ -23,7 +22,6 @@ const BookCall = () => {
     fullName: '',
     email: '',
     companyName: '',
-    website: '',
     service: '',
     budget: '',
     preferredDate: '',
@@ -151,7 +149,6 @@ const BookCall = () => {
       formBody.append('name', formData.fullName)
       formBody.append('email', formData.email)
       formBody.append('company', formData.companyName || 'Not provided')
-      formBody.append('website', formData.website || 'Not provided')
       formBody.append('service', formData.service)
       formBody.append('budget', formData.budget || 'Not specified')
       formBody.append('preferred_date', formData.preferredDate)
@@ -180,7 +177,6 @@ const BookCall = () => {
           fullName: '',
           email: '',
           companyName: '',
-          website: '',
           service: '',
           budget: '',
           preferredDate: '',
@@ -361,30 +357,10 @@ const BookCall = () => {
                 </motion.div>
 
                 <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.55 }}
-                >
-                  <label className="block text-sm font-medium text-white mb-2">
-                    Website URL
-                  </label>
-                  <motion.input
-                    whileFocus={{ scale: 1.02 }}
-                    type="url"
-                    name="website"
-                    value={formData.website}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white border border-accent-primary/20 rounded-lg text-black placeholder-gray-500 focus:outline-none focus:border-accent-primary transition-all"
-                    placeholder="https://yourcompany.com"
-                  />
-                </motion.div>
-
-                <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.6 }}
+                  transition={{ duration: 0.4, delay: 0.55 }}
                 >
                   <label className="block text-sm font-medium text-white mb-2">
                     Service Required <span className="text-accent-primary">*</span>
