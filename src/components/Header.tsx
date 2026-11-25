@@ -175,7 +175,7 @@ const Header = ({ activeSection }: HeaderProps) => {
               transition={{ duration: 0.8 }}
             >
               <motion.img
-                src="/Neon CF Monogram App Icon.png"
+                src="/Neon%20CF%20Monogram%20App%20Icon.png"
                 alt="Codefinial Logo"
                 className="w-full h-full object-contain"
                 animate={{ 
@@ -314,7 +314,7 @@ const Header = ({ activeSection }: HeaderProps) => {
             initial="closed"
             animate="open"
             exit="closed"
-            className="fixed inset-0 top-24 lg:hidden bg-white/95 backdrop-blur-2xl z-40"
+            className="fixed inset-0 top-24 lg:hidden bg-white/95 backdrop-blur-2xl z-40 overflow-hidden"
           >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 h-full">
               <nav className="flex flex-col space-y-3">

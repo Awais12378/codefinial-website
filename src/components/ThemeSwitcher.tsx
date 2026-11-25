@@ -13,7 +13,7 @@ const ThemeSwitcher = () => {
         animate={{ opacity: 1, y: 0 }}
         className="fixed top-0 left-0 right-0 z-50 bg-background-card/95 backdrop-blur-xl border-b border-accent-primary/20 shadow-2xl lg:hidden"
       >
-        <div className="container mx-auto px-4 py-3">
+        <div className="container mx-auto px-4 py-3 overflow-hidden">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Palette className="w-4 h-4 text-accent-primary" />
@@ -24,7 +24,7 @@ const ThemeSwitcher = () => {
                 <motion.button
                   key={theme.name}
                   onClick={() => setTheme(theme)}
-                  className={`w-8 h-8 rounded-full transition-all ${
+                  className={`w-8 h-8 rounded-full transition-all flex-shrink-0 ${
                     currentTheme.name === theme.name
                       ? 'ring-2 ring-accent-primary ring-offset-2 ring-offset-background-card'
                       : 'hover:scale-110'
