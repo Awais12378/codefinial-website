@@ -175,7 +175,7 @@ const Header = ({ activeSection }: HeaderProps) => {
               transition={{ duration: 0.8 }}
             >
               <motion.img
-                src="/Neon%20C-F%20Orbital%20Emblem.png"
+                src="/neon-cf-logo.png"
                 alt="Codefinial Logo"
                 className="w-full h-full object-contain"
                 animate={{ 
