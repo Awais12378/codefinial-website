@@ -49,7 +49,7 @@ const Footer = () => {
                 <motion.img
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
-                  src="/Neon%20CF%20Monogram%20App%20Icon.png"
+                  src="/Neon%20C-F%20Orbital%20Emblem.png"
                   alt="Codefinial Logo"
                   className="w-10 h-10 object-contain"
                 />
