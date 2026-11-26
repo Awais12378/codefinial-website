@@ -5,7 +5,7 @@ import Section from './Section'
 
 const Splash = () => {
   return (
-    <Section className="min-h-screen flex items-center pt-20 bg-offWhite">
+    <Section id="splash" className="min-h-screen flex items-center pt-20 bg-offWhite">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div

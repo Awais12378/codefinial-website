@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { Code, Globe, Zap, Shield, ArrowRight, FileText, GraduationCap, BookOpen, Laptop } from 'lucide-react'
-import Button from './Button'
 import Section from './Section'
 
 const services = [
@@ -189,9 +188,7 @@ const Services = () => {
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
-                  className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${
-                    isMiddle ? 'bg-primary' : 'bg-primary/10'
-                  }`}
+                  className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${isMiddle ? 'bg-primary' : 'bg-primary/10'}`}
                 >
                   <Icon className={`w-7 h-7 ${isMiddle ? 'text-accent' : 'text-primary'}`} />
                 </motion.div>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ArrowRight } from 'lucide-react'
-import Button from './Button'
 
 interface HeaderProps {
   activeSection: string
@@ -190,11 +189,7 @@ const Header = ({ activeSection }: HeaderProps) => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: 0.1 * index }}
                     onClick={() => scrollToSection(link.href)}
-                    className={`text-left text-base font-semibold py-2 px-4 rounded-lg ${
-                      activeSection === link.href.slice(1) 
-                        ? 'text-primary bg-white' 
-                        : 'text-primary/80 hover:text-primary hover:bg-white/50'
-                    }`}
+                    className={`text-left text-base font-semibold py-2 px-4 rounded-lg ${activeSection === link.href.slice(1) ? 'text-primary bg-white' : 'text-primary/80 hover:text-primary hover:bg-white/50'}`}
                     whileHover={{ x: 10 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ duration: 0.2 }}

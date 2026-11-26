@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Search, FileText, Code, CheckCircle, Headphones } from 'lucide-react'
+import { Search, FileText, Code } from 'lucide-react'
 import Section from './Section'
 
 const steps = [
