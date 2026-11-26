@@ -25,7 +25,7 @@
   }
   
   body {
-    @apply text-text-main antialiased;
+    @apply text-textPrimary antialiased;
     font-family: 'Manrope', sans-serif;
     background-color: var(--color-background);
     margin: 0;
