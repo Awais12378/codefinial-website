@@ -7,22 +7,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: {
-          main: 'var(--color-background)',
-          secondary: 'var(--color-background)',
-          card: 'var(--color-card)',
-        },
-        accent: {
-          primary: 'var(--color-primary)',
-          secondary: 'var(--color-secondary)',
-        },
-        text: {
-          main: 'var(--color-text)',
-          secondary: 'var(--color-text-secondary)',
-        },
+        primary: '#123D2D',
+        secondary: '#0C3023',
+        accent: '#B7F500',
+        white: '#FFFFFF',
+        offWhite: '#F6F7F3',
+        lightGrey: '#E9ECE7',
+        textPrimary: '#17221C',
+        textSecondary: '#68736C',
       },
       fontFamily: {
-        sans: ['Inter', 'Manrope', 'Plus Jakarta Sans', 'sans-serif'],
+        sans: ['Manrope', 'sans-serif'],
+      },
+      borderRadius: {
+        'xl': '1rem',
+        '2xl': '1.5rem',
       },
     },
   },

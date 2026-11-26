@@ -18,8 +18,7 @@ const services = [
       'Database architecture',
       'Internal business management systems'
     ],
-    cta: 'Discuss Your Software Project',
-    backgroundImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80'
+    cta: 'Discuss Your Software Project'
   },
   {
     icon: Globe,
@@ -36,8 +35,7 @@ const services = [
       'Performance optimization',
       'Responsive UI/UX'
     ],
-    cta: 'Build Your Website',
-    backgroundImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'
+    cta: 'Build Your Website'
   },
   {
     icon: Zap,
@@ -55,8 +53,7 @@ const services = [
       'Third-party API integrations',
       'Business process automation'
     ],
-    cta: 'Automate Your Business',
-    backgroundImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80'
+    cta: 'Automate Your Business'
   },
   {
     icon: Shield,
@@ -73,8 +70,7 @@ const services = [
       'Vulnerability assessment reports'
     ],
     cta: 'Discuss Your Security Assessment',
-    note: 'All security assessments are conducted with prior written authorization and an agreed testing scope.',
-    backgroundImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80'
+    note: 'All security assessments are conducted with prior written authorization and an agreed testing scope.'
   },
   {
     icon: FileText,
@@ -90,8 +86,7 @@ const services = [
       'Proofreading services',
       'Citation formatting'
     ],
-    cta: 'Get Assignment Help',
-    backgroundImage: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80'
+    cta: 'Get Assignment Help'
   },
   {
     icon: BookOpen,
@@ -107,8 +102,7 @@ const services = [
       'Quality assurance',
       'On-time delivery'
     ],
-    cta: 'Start Your Project',
-    backgroundImage: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80'
+    cta: 'Start Your Project'
   },
   {
     icon: GraduationCap,
@@ -124,8 +118,7 @@ const services = [
       'Plagiarism-free content',
       'Formatting and citation'
     ],
-    cta: 'Discuss Your Thesis',
-    backgroundImage: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80'
+    cta: 'Discuss Your Thesis'
   },
   {
     icon: Laptop,
@@ -141,14 +134,13 @@ const services = [
       'Project report writing',
       'Presentation and viva preparation'
     ],
-    cta: 'Build Your Final Year Project',
-    backgroundImage: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80'
+    cta: 'Build Your Final Year Project'
   }
 ]
 
 const Services = () => {
   return (
-    <Section id="services" className="bg-transparent">
+    <Section id="services" className="bg-primary py-24">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -157,25 +149,27 @@ const Services = () => {
         className="text-center mb-16"
       >
         <motion.div
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-multicolor mb-4"
+          className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-accent/20 mb-4"
         >
-          <span className="text-white text-sm font-medium tracking-wide">OUR SERVICES</span>
+          <div className="w-2 h-2 bg-accent rounded-full" />
+          <span className="text-accent text-sm font-semibold tracking-wide">OUR SERVICES</span>
         </motion.div>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-main mb-4">
-          What We Build & What We Solve
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          Boost Your Brand With Our <span className="text-accent">Expertise</span>
         </h2>
-        <p className="text-lg text-white max-w-3xl mx-auto">
+        <p className="text-lg text-white/80 max-w-3xl mx-auto">
           Technology should make your business simpler, faster, and more efficient. We deliver solutions that help you achieve exactly that.
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {services.map((service, index) => {
           const Icon = service.icon
+          const isMiddle = index === 1 || index === 2 || index === 5 || index === 6
           return (
             <motion.div
               key={service.name}
@@ -183,41 +177,50 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-              className="relative group rounded-3xl overflow-hidden shadow-2xl"
+              className={`relative group rounded-2xl overflow-hidden border ${
+                isMiddle 
+                  ? 'bg-accent border-accent' 
+                  : 'bg-white border-lightGrey'
+              }`}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.3 }}
             >
-              <motion.div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                style={{ backgroundImage: `url(${service.backgroundImage})` }}
-              />
-              <div className="absolute inset-0 bg-black/50 transition-all duration-300" />
-              
-              <div className="relative p-8 h-full flex flex-col">
+              <div className="p-6 h-full flex flex-col">
                 <motion.div
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
-                  className="w-16 h-16 bg-gradient-multicolor rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm border border-white/20"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                  className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${
+                    isMiddle ? 'bg-primary' : 'bg-primary/10'
+                  }`}
                 >
-                  <Icon className="w-8 h-8 text-white" />
+                  <Icon className={`w-7 h-7 ${isMiddle ? 'text-accent' : 'text-primary'}`} />
                 </motion.div>
 
-                <h3 className="text-2xl font-bold text-text-main mb-4">{service.name}</h3>
-                <p className="text-white mb-6 leading-relaxed">{service.description}</p>
+                <h3 className={`text-xl font-bold mb-3 ${isMiddle ? 'text-primary' : 'text-textPrimary'}`}>
+                  {service.name}
+                </h3>
+                <p className={`text-sm mb-4 leading-relaxed ${isMiddle ? 'text-primary/95' : 'text-textSecondary'}`}>
+                  {service.description}
+                </p>
 
-                <ul className="space-y-2 mb-6">
-                  {service.capabilities.slice(0, 4).map((capability) => (
-                    <motion.li
+                <ul className="space-y-2 mb-4 flex-grow">
+                  {service.capabilities.slice(0, 3).map((capability) => (
+                    <li
                       key={capability}
-                      whileHover={{ x: 5 }}
-                      className="flex items-start text-sm text-white"
+                      className={`flex items-start text-xs ${
+                        isMiddle ? 'text-primary/90' : 'text-textSecondary'
+                      }`}
                     >
-                      <div className="w-1.5 h-1.5 bg-gradient-multicolor rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className={`w-1.5 h-1.5 rounded-full mt-1.5 mr-2 flex-shrink-0 ${
+                        isMiddle ? 'bg-primary' : 'bg-accent'
+                      }`} />
                       {capability}
-                    </motion.li>
+                    </li>
                   ))}
                 </ul>
 
                 {service.note && (
-                  <p className="text-xs text-white/70 mb-6 italic">
+                  <p className={`text-xs mb-4 italic ${isMiddle ? 'text-primary/80' : 'text-textSecondary'}`}>
                     {service.note}
                   </p>
                 )}
@@ -227,15 +230,15 @@ const Services = () => {
                   whileTap={{ scale: 0.95 }}
                   className="mt-auto"
                 >
-                  <Button
-                    variant="secondary"
-                    size="sm"
-                    className="w-full"
+                  <button
                     onClick={() => document.querySelector('#book-call')?.scrollIntoView({ behavior: 'smooth' })}
+                    className={`flex items-center text-sm font-semibold ${
+                      isMiddle ? 'text-primary font-bold' : 'text-primary'
+                    }`}
                   >
                     {service.cta}
                     <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
+                  </button>
                 </motion.div>
               </div>
             </motion.div>

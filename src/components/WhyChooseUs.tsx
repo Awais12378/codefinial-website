@@ -37,67 +37,127 @@ const features = [
 
 const WhyChooseUs = () => {
   return (
-    <Section id="why-choose-us" className="bg-transparent">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="max-w-6xl mx-auto"
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center mb-16"
-        >
+    <Section id="why-choose-us" className="bg-offWhite py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-multicolor-alt mb-4"
+            transition={{ duration: 0.6 }}
+            className="relative"
           >
-            <span className="text-white text-sm font-medium tracking-wide">WHY CHOOSE US</span>
-          </motion.div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-main mb-4">
-            Why Businesses Choose Codefinial
-          </h2>
-          <p className="text-lg text-white max-w-3xl mx-auto">
-            We combine technical expertise with a deep understanding of business needs to deliver solutions that truly make a difference.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon
-            return (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-8"
+            >
               <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-gradient-multicolor p-1 rounded-3xl shadow-2xl group"
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-primary/10 mb-4"
               >
-                <div className="bg-black/90 backdrop-blur-sm rounded-3xl p-6 h-full">
+                <div className="w-2 h-2 bg-accent rounded-full" />
+                <span className="text-primary text-sm font-semibold tracking-wide">WHY CHOOSE US</span>
+              </motion.div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-textPrimary mb-4">
+                Why Our Clients <span className="text-accent">Believe We're Different</span>
+              </h2>
+              <p className="text-lg text-textSecondary">
+                We combine technical expertise with a deep understanding of business needs to deliver solutions that truly make a difference.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-2 gap-4">
+              {features.slice(0, 4).map((feature, index) => {
+                const Icon = feature.icon
+                return (
                   <motion.div
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                    className="w-14 h-14 bg-gradient-multicolor-alt rounded-2xl flex items-center justify-center mb-4"
+                    key={feature.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                    className="bg-white rounded-2xl p-5 border border-lightGrey"
+                    whileHover={{ y: -4 }}
                   >
-                    <Icon className="w-7 h-7 text-white" />
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-3">
+                      <Icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-textPrimary mb-2">{feature.title}</h3>
+                    <p className="text-sm text-textSecondary">{feature.description}</p>
                   </motion.div>
-                  <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                  <p className="text-white/80 leading-relaxed">{feature.description}</p>
+                )
+              })}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative">
+              <motion.div
+                className="bg-primary rounded-3xl p-8 relative overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  className="absolute -top-20 -right-20 w-40 h-40 bg-accent/20 rounded-full blur-3xl"
+                />
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 4, repeat: Infinity, delay: 2 }}
+                  className="absolute -bottom-20 -left-20 w-40 h-40 bg-accent/20 rounded-full blur-3xl"
+                />
+
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-bold text-white mb-6">What Sets Us Apart</h3>
+                  
+                  {features.slice(4).map((feature, index) => {
+                    const Icon = feature.icon
+                    return (
+                      <motion.div
+                        key={feature.title}
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                        className="flex items-start space-x-4 mb-6 last:mb-0"
+                      >
+                        <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center flex-shrink-0">
+                          <Icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-white mb-1">{feature.title}</h4>
+                          <p className="text-white/80 text-sm">{feature.description}</p>
+                        </div>
+                      </motion.div>
+                    )
+                  })}
                 </div>
               </motion.div>
-            )
-          })}
+
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+                className="absolute -top-6 -right-6 bg-accent rounded-2xl p-4 shadow-lg"
+              >
+                <div className="text-primary font-bold text-lg">CF</div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </Section>
   )
 }

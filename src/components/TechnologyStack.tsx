@@ -46,78 +46,61 @@ const techCategories = [
 
 const TechnologyStack = () => {
   return (
-    <Section id="technology" className="bg-transparent">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="max-w-6xl mx-auto"
-      >
+    <Section id="technology" className="bg-offWhite py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-multicolor-alt mb-4"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-primary/10 mb-4"
           >
-            <span className="text-white text-sm font-medium tracking-wide">TECHNOLOGY STACK</span>
+            <div className="w-2 h-2 bg-accent rounded-full" />
+            <span className="text-primary text-sm font-semibold tracking-wide">TECHNOLOGY STACK</span>
           </motion.div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-main mb-4">
-            Technology We Work With
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-textPrimary mb-4">
+            Technology We <span className="text-accent">Work With</span>
           </h2>
-          <p className="text-lg text-white max-w-3xl mx-auto">
+          <p className="text-lg text-textSecondary max-w-3xl mx-auto">
             Modern tools and frameworks for building reliable, scalable, and secure solutions.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {techCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.name}
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 + categoryIndex * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="bg-gradient-multicolor p-1 rounded-3xl shadow-2xl"
+              transition={{ duration: 0.6, delay: 0.3 + categoryIndex * 0.1 }}
+              whileHover={{ y: -8 }}
+              className="bg-white rounded-2xl p-6 border border-lightGrey"
             >
-              <div className="bg-background-card/95 backdrop-blur-sm border border-accent-primary/10 rounded-3xl p-6 h-full">
-                <motion.h3
-                  whileHover={{ x: 5 }}
-                  className="text-lg font-bold text-text-main mb-4"
-                >
-                  {category.name}
-                </motion.h3>
-                <div className="space-y-3">
-                  {category.technologies.map((tech) => (
-                    <motion.div
-                      key={tech.name}
-                      whileHover={{ x: 5, scale: 1.05 }}
-                      className="flex items-center space-x-3 text-white hover:text-accent-primary transition-colors cursor-default"
-                    >
-                      <motion.span
-                        whileHover={{ rotate: 10 }}
-                        className="text-xl"
-                      >
-                        {tech.icon}
-                      </motion.span>
-                      <span className="text-sm">{tech.name}</span>
-                    </motion.div>
-                  ))}
-                </div>
+              <h3 className="text-lg font-bold text-textPrimary mb-4">{category.name}</h3>
+              <div className="space-y-3">
+                {category.technologies.map((tech) => (
+                  <motion.div
+                    key={tech.name}
+                    whileHover={{ x: 5 }}
+                    className="flex items-center space-x-3 text-textSecondary hover:text-primary transition-colors cursor-default"
+                  >
+                    <span className="text-lg">{tech.icon}</span>
+                    <span className="text-sm">{tech.name}</span>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </Section>
   )
 }

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { createContext, useContext, useEffect, ReactNode } from 'react'
 
 export interface ColorTheme {
   name: string
@@ -13,84 +13,27 @@ export interface ColorTheme {
   textSecondary: string
 }
 
-const themes: ColorTheme[] = [
-  {
-    name: 'Ocean Blue',
-    primary: '#2563EB',
-    secondary: '#0891B2',
-    accent: '#60A5FA',
-    tertiary: '#0EA5E9',
-    quaternary: '#06B6D4',
-    background: '#080D18',
-    card: '#111D30',
-    text: '#60A5FA',
-    textSecondary: '#94A3B8'
-  },
-  {
-    name: 'Royal Purple',
-    primary: '#6D28D9',
-    secondary: '#7C3AED',
-    accent: '#A78BFA',
-    tertiary: '#8B5CF6',
-    quaternary: '#A855F7',
-    background: '#1A0B2E',
-    card: '#2D1B4E',
-    text: '#A78BFA',
-    textSecondary: '#C4B5FD'
-  },
-  {
-    name: 'Emerald Green',
-    primary: '#047857',
-    secondary: '#059669',
-    accent: '#34D399',
-    tertiary: '#10B981',
-    quaternary: '#14B8A6',
-    background: '#062C16',
-    card: '#0F3D2E',
-    text: '#34D399',
-    textSecondary: '#6EE7B7'
-  },
-  {
-    name: 'Sunset Orange',
-    primary: '#C2410C',
-    secondary: '#EA580C',
-    accent: '#FB923C',
-    tertiary: '#F97316',
-    quaternary: '#F59E0B',
-    background: '#2C1206',
-    card: '#4E2C18',
-    text: '#FB923C',
-    textSecondary: '#FDBA74'
-  },
-  {
-    name: 'Rose Pink',
-    primary: '#BE185D',
-    secondary: '#DB2777',
-    accent: '#F472B6',
-    tertiary: '#EC4899',
-    quaternary: '#F43F5E',
-    background: '#2C0618',
-    card: '#4E1124',
-    text: '#F472B6',
-    textSecondary: '#F9A8D4'
-  }
-]
+const theme: ColorTheme = {
+  name: 'CODEFINIAL',
+  primary: '#123D2D',
+  secondary: '#0C3023',
+  accent: '#B7F500',
+  tertiary: '#123D2D',
+  quaternary: '#0C3023',
+  background: '#F6F7F3',
+  card: '#FFFFFF',
+  text: '#17221C',
+  textSecondary: '#68736C'
+}
 
 interface ThemeContextType {
   currentTheme: ColorTheme
-  setTheme: (theme: ColorTheme) => void
-  themes: ColorTheme[]
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [currentTheme, setCurrentTheme] = useState(themes[0])
-
-  const setTheme = (theme: ColorTheme) => {
-    setCurrentTheme(theme)
-    
-    // Update CSS variables
+  useEffect(() => {
     const root = document.documentElement
     root.style.setProperty('--color-primary', theme.primary)
     root.style.setProperty('--color-secondary', theme.secondary)
@@ -102,7 +45,6 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     root.style.setProperty('--color-text', theme.text)
     root.style.setProperty('--color-text-secondary', theme.textSecondary)
     
-    // Update the overlay gradient and force text colors using a style element
     let styleElement = document.getElementById('theme-overlay')
     if (!styleElement) {
       styleElement = document.createElement('style')
@@ -110,9 +52,6 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
       document.head.appendChild(styleElement)
     }
     styleElement.textContent = `
-      body::before {
-        background: linear-gradient(135deg, ${theme.background}cc 0%, ${theme.background}99 50%, ${theme.background}cc 100%) !important;
-      }
       .text-text-main {
         color: ${theme.text} !important;
       }
@@ -120,21 +59,16 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
         color: ${theme.textSecondary} !important;
       }
       .text-gradient {
-        background: linear-gradient(to right, ${theme.primary}, ${theme.secondary}) !important;
+        background: linear-gradient(to right, ${theme.primary}, ${theme.accent}) !important;
         -webkit-background-clip: text !important;
         background-clip: text !important;
         color: transparent !important;
       }
     `
-  }
-
-  // Initialize theme on mount
-  useEffect(() => {
-    setTheme(themes[0])
   }, [])
 
   return (
-    <ThemeContext.Provider value={{ currentTheme, setTheme, themes }}>
+    <ThemeContext.Provider value={{ currentTheme: theme }}>
       {children}
     </ThemeContext.Provider>
   )

@@ -10,7 +10,6 @@ import About from './components/About'
 import BookCall from './components/BookCall'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import ThemeSwitcher from './components/ThemeSwitcher'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
@@ -39,8 +38,7 @@ function App() {
     <ThemeProvider>
       <div className="min-h-screen">
         <Header activeSection={activeSection} />
-        <ThemeSwitcher />
-        <main className="lg:pt-0 pt-32">
+        <main className="pt-20">
           <Hero />
           <Services />
           <WhyChooseUs />

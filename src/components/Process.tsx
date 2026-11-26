@@ -6,128 +6,102 @@ const steps = [
   {
     icon: Search,
     number: '01',
-    title: 'Discovery',
-    description: 'We understand your business, objectives, current challenges, and project requirements.'
+    title: 'Discover Your Goals',
+    description: 'Understand the client\'s business, target audience and objectives.'
   },
   {
     icon: FileText,
     number: '02',
-    title: 'Strategy & Planning',
-    description: 'We define the solution, technical approach, deliverables, and project scope.'
+    title: 'Develop Your Strategy',
+    description: 'Create a customized digital marketing and creative strategy.'
   },
   {
     icon: Code,
     number: '03',
-    title: 'Design & Development',
-    description: 'We design, develop, integrate, and test the solution.'
-  },
-  {
-    icon: CheckCircle,
-    number: '04',
-    title: 'Testing & Delivery',
-    description: 'We validate functionality, resolve issues, and prepare the final implementation.'
-  },
-  {
-    icon: Headphones,
-    number: '05',
-    title: 'Support & Improvement',
-    description: 'We provide documentation and discuss ongoing improvements and support where required.'
+    title: 'Execute and Optimize',
+    description: 'Launch campaigns, monitor performance and improve results.'
   }
 ]
 
 const Process = () => {
   return (
-    <Section id="process" className="bg-transparent">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="max-w-6xl mx-auto"
-      >
+    <Section id="process" className="bg-white py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-multicolor mb-4"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-primary/10 mb-4"
           >
-            <span className="text-white text-sm font-medium tracking-wide">OUR PROCESS</span>
+            <div className="w-2 h-2 bg-accent rounded-full" />
+            <span className="text-primary text-sm font-semibold tracking-wide">OUR PROCESS</span>
           </motion.div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-main mb-4">
-            From Idea to Implementation
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-textPrimary mb-4">
+            Step-by-Step to Your <span className="text-accent">Growth</span>
           </h2>
-          <p className="text-lg text-white max-w-3xl mx-auto">
+          <p className="text-lg text-textSecondary max-w-3xl mx-auto">
             A straightforward process designed to turn your requirements into reliable digital solutions.
           </p>
         </motion.div>
 
-        <div className="relative">
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-multicolor -translate-y-1/2"
-          />
+        <div className="grid md:grid-cols-3 gap-8">
+          {steps.map((step, index) => {
+            const Icon = step.icon
+            return (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                whileHover={{ y: -8 }}
+                className="relative"
+              >
+                <div className="bg-offWhite rounded-2xl p-8 border border-lightGrey h-full">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                    className="text-6xl font-bold text-primary/10 mb-4"
+                  >
+                    {step.number}
+                  </motion.div>
+                  
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6"
+                  >
+                    <Icon className="w-8 h-8 text-accent" />
+                  </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
-            {steps.map((step, index) => {
-              const Icon = step.icon
-              return (
-                <motion.div
-                  key={step.number}
-                  initial={{ opacity: 0, y: 50, scale: 0.8 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                  whileHover={{ y: -15, scale: 1.05 }}
-                  className="relative"
-                >
-                  <div className="bg-gradient-multicolor p-1 rounded-2xl shadow-2xl">
-                    <div className="bg-black/90 backdrop-blur-sm border border-white/20 rounded-2xl p-6 h-full">
-                      <motion.div
-                        whileHover={{ rotate: 360, scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
-                        className="w-14 h-14 bg-gradient-multicolor-alt rounded-xl flex items-center justify-center mb-4 relative z-10"
-                      >
-                        <Icon className="w-7 h-7 text-white" />
-                      </motion.div>
+                  <h3 className="text-2xl font-bold text-textPrimary mb-3">{step.title}</h3>
+                  <p className="text-textSecondary leading-relaxed">{step.description}</p>
+                </div>
 
-                      <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        className="text-3xl font-bold text-white mb-2"
-                      >
-                        {step.number}
-                      </motion.div>
-                      <motion.h3
-                        whileHover={{ x: 5 }}
-                        className="text-lg font-bold text-white mb-3"
-                      >
-                        {step.title}
-                      </motion.h3>
-                      <motion.p
-                        whileHover={{ opacity: 1 }}
-                        initial={{ opacity: 0.8 }}
-                        className="text-white/80 text-sm leading-relaxed"
-                      >
-                        {step.description}
-                      </motion.p>
-                    </div>
-                  </div>
-                </motion.div>
-              )
-            })}
-          </div>
+                {index < steps.length - 1 && (
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                    className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-accent/30 -translate-y-1/2"
+                  />
+                )}
+              </motion.div>
+            )
+          })}
         </div>
-      </motion.div>
+      </div>
     </Section>
   )
 }
