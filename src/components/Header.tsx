@@ -192,7 +192,6 @@ const Header = ({ activeSection }: HeaderProps) => {
                     className={`text-left text-base font-semibold py-2 px-4 rounded-lg ${activeSection === link.href.slice(1) ? 'text-primary bg-white' : 'text-primary/80 hover:text-primary hover:bg-white/50'}`}
                     whileHover={{ x: 10 }}
                     whileTap={{ scale: 0.98 }}
-                    transition={{ duration: 0.2 }}
                   >
                     {link.name}
                   </motion.button>

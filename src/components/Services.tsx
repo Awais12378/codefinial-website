@@ -182,7 +182,6 @@ const Services = () => {
                   : 'bg-white border-lightGrey'
               }`}
               whileHover={{ y: -8 }}
-              transition={{ duration: 0.3 }}
             >
               <div className="p-6 h-full flex flex-col">
                 <motion.div
